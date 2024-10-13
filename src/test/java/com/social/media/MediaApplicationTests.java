@@ -8,6 +8,7 @@ class MediaApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
