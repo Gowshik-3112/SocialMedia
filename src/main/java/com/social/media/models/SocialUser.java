@@ -17,13 +17,13 @@ public class SocialUser {
     private Long id;
 
     @OneToOne(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},
-              fetch = FetchType.LAZY)
+              fetch = FetchType.EAGER)
     private SocialProfile socialProfile;
 
     @OneToMany(mappedBy = "socialUser")
     private List<Post> posts = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_group",
             joinColumns = @JoinColumn(name = "user_id"),
